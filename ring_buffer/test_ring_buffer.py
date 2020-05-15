@@ -8,27 +8,27 @@ class RingBufferTests(unittest.TestCase):
         self.buffer_2 = RingBuffer(5)
 
     def test_ring_buffer(self):
-        # self.assertEqual(self.buffer.storage.length, 0)
+        self.assertEqual(self.buffer.storage.length, 0)
 
         self.buffer.append('a')
         self.buffer.append('b')
         self.buffer.append('c')
         self.buffer.append('d')
-        # self.assertEqual(self.buffer.storage.length, 4)
+        self.assertEqual(self.buffer.storage.length, 4)
         self.assertEqual(self.buffer.get(), ['a', 'b', 'c', 'd'])
 
         self.buffer.append('e')
-        # self.assertEqual(self.buffer.storage.length, 5)
+        self.assertEqual(self.buffer.storage.length, 5)
         self.assertEqual(self.buffer.get(), ['a', 'b', 'c', 'd', 'e'])
 
         self.buffer.append('f')
-        # self.assertEqual(self.buffer.storage.length, 5)
+        self.assertEqual(self.buffer.storage.length, 5)
         self.assertEqual(self.buffer.get(), ['f', 'b', 'c', 'd', 'e'])
 
         self.buffer.append('g')
         self.buffer.append('h')
         self.buffer.append('i')
-        # self.assertEqual(self.buffer.storage.length, 5)
+        self.assertEqual(self.buffer.storage.length, 5)
         self.assertEqual(self.buffer.get(), ['f', 'g', 'h', 'i', 'e'])
 
         self.buffer.append('j')
